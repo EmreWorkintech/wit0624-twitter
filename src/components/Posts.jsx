@@ -1,10 +1,13 @@
-import { posts } from "../data";
+import { useContext } from "react";
 import Post from "./Post";
+import { MainContext } from "../contexts/MainContext";
 
 function Posts() {
+  const { state } = useContext(MainContext);
+
   return (
     <div>
-      {posts.map((item, index) => (
+      {state?.posts.map((item, index) => (
         <Post postItem={item} key={index} />
       ))}
     </div>
