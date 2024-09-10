@@ -1,10 +1,45 @@
+import axios from "axios";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { MainContext } from "../contexts/MainContext";
+
 function TweetForm() {
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: { post: "" },
+    mode: "onChange",
+  });
+  const { addPost } = useContext(MainContext);
+
+  const submitFn = (formData) => {
+    console.log(formData);
+    axios
+      .post("https://reqres.in/api/users", formData)
+      .then(() => {
+        const postItem = {
+          username: "EmreSahiner",
+          address: "@emreSah",
+          message: formData.post,
+          createdAt: new Date(),
+          analytics: {
+            comment: 0,
+            reTweet: 0,
+            like: 0,
+          },
+        };
+        addPost(postItem);
+        toast.success("Kaydedildi");
+        reset();
+      })
+      .catch((error) => toast.error(error.message));
+  };
+
   return (
     <div className="flex gap-4 p-2 my-4 items-start border-b-2 border-solid border-b-slate-100">
       <img src="https://picsum.photos/50" className="rounded-full" />
-      <form className="grow text-right">
+      <form className="grow text-right" onSubmit={handleSubmit(submitFn)}>
         <textarea
-          name="post"
+          {...register("post")}
           className="w-full p-2"
           placeholder="What's happening"
         />

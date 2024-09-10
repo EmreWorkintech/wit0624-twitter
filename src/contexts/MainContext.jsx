@@ -11,8 +11,15 @@ const initialState = {
 };
 
 export function MainContextProvider({ children }) {
-  const [state] = useState(initialState);
+  const [state, setState] = useState(initialState);
+
+  const addPost = (post) => {
+    setState({ ...state, posts: [post, ...state.posts] });
+  };
+
   return (
-    <MainContext.Provider value={{ state }}>{children}</MainContext.Provider>
+    <MainContext.Provider value={{ state, addPost }}>
+      {children}
+    </MainContext.Provider>
   );
 }
