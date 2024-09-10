@@ -13,7 +13,10 @@ function Post(props) {
 
   return (
     <div className="flex gap-4 p-2 my-4 items-start">
-      <img src="https://picsum.photos/50" className="rounded-full" />
+      <img
+        src={`https://picsum.photos/50?${Math.floor(Math.random() * 1000)}`}
+        className="rounded-full"
+      />
       <div className="grow">
         <div>
           <span className="font-bold mr-2 text-lg">{postItem.username}</span>
@@ -21,7 +24,7 @@ function Post(props) {
           <span className="text-slate-500">{date}</span>
         </div>
         <div>{postItem.message}</div>
-        <Analytics />
+        <Analytics analytics={postItem.analytics} />
       </div>
       <div>...</div>
     </div>
