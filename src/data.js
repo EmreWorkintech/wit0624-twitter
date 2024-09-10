@@ -19,29 +19,54 @@ export const posts = [
     address: "@emreSah",
     message: "lorem ipsum",
     createdAt: "2024-09-01",
+    analytics: {
+      comment: Math.floor(Math.random() * 100),
+      reTweet: Math.floor(Math.random() * 100),
+      like: Math.floor(Math.random() * 100),
+    },
   },
   {
     username: "EmreSahiner",
     address: "@emreSah",
     message: "lorem ipsum",
     createdAt: "2024-09-02",
+    analytics: {
+      comment: Math.floor(Math.random() * 100),
+      reTweet: Math.floor(Math.random() * 100),
+      like: Math.floor(Math.random() * 100),
+    },
   },
   {
     username: "EmreSahiner",
     address: "@emreSah",
     message: "lorem ipsum",
     createdAt: "2024-09-03",
+    analytics: {
+      comment: Math.floor(Math.random() * 100),
+      reTweet: Math.floor(Math.random() * 100),
+      like: Math.floor(Math.random() * 100),
+    },
   },
   {
     username: "EmreSahiner",
     address: "@emreSah",
     message: "lorem ipsum",
     createdAt: "2024-09-04",
+    analytics: {
+      comment: Math.floor(Math.random() * 100),
+      reTweet: Math.floor(Math.random() * 100),
+      like: Math.floor(Math.random() * 100),
+    },
   },
   {
     username: "EmreSahiner",
     address: "@emreSah",
     message: "lorem ipsum",
     createdAt: "2024-09-05",
+    analytics: {
+      comment: Math.floor(Math.random() * 100),
+      reTweet: Math.floor(Math.random() * 100),
+      like: Math.floor(Math.random() * 100),
+    },
   },
 ];

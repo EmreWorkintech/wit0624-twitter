@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { toast } from "react-toastify";
 
 function Login() {
@@ -14,12 +15,14 @@ function Login() {
     },
     mode: "onChange",
   });
+  const history = useHistory();
 
   const submitFormData = (formData) => {
     axios
-      .post("https://reqreds.in/api/users", formData)
+      .post("https://reqres.in/api/users", formData)
       .then((response) => {
         toast.success(response.data.email + " başarı ile kaydedildi!..");
+        history.push("/feed");
       })
       .catch((error) => toast.error(error.message));
   };
