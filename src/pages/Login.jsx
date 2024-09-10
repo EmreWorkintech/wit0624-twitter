@@ -38,7 +38,7 @@ function Login() {
           pattern: {
             value:
               /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
-            message: "Gerçerli bir email adresi giriniz",
+            message: "Geçerli bir email adresi giriniz",
           },
         })}
         placeholder="Email adresinizi girini"
