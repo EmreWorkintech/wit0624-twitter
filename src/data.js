@@ -11,6 +11,26 @@ export const navigationItems = [
     class: "fa-regular fa-bell",
     name: "Notifications",
   },
+  {
+    class: "fa-regular fa-message",
+    name: "Messages",
+  },
+  {
+    class: "fa-regular fa-bookmark",
+    name: "Bookmarks",
+  },
+  {
+    class: "fa-regular fa-list-ul",
+    name: "Lists",
+  },
+  {
+    class: "fa-regular fa-user",
+    name: "Profile",
+  },
+  {
+    class: "fa-regular fa-ellipsis",
+    name: "More",
+  },
 ];
 
 export const posts = [
