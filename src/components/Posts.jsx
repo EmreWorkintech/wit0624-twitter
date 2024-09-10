@@ -1,13 +1,11 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import Post from "./Post";
-import { MainContext } from "../contexts/MainContext";
 
 function Posts() {
-  const { state } = useContext(MainContext);
-
+  const posts = useSelector((state) => state.posts);
   return (
     <div>
-      {state?.posts.map((item, index) => (
+      {posts.map((item, index) => (
         <Post postItem={item} key={index} />
       ))}
     </div>

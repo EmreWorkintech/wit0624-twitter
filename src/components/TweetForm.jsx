@@ -1,33 +1,23 @@
 import axios from "axios";
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { MainContext } from "../contexts/MainContext";
+import { addPost } from "../store/actions/mainActions";
 
 function TweetForm() {
   const { register, handleSubmit, reset } = useForm({
     defaultValues: { post: "" },
     mode: "onChange",
   });
-  const { addPost } = useContext(MainContext);
+
+  const dispatch = useDispatch();
 
   const submitFn = (formData) => {
     console.log(formData);
     axios
       .post("https://reqres.in/api/users", formData)
       .then(() => {
-        const postItem = {
-          username: "EmreSahiner",
-          address: "@emreSah",
-          message: formData.post,
-          createdAt: new Date(),
-          analytics: {
-            comment: 0,
-            reTweet: 0,
-            like: 0,
-          },
-        };
-        addPost(postItem);
+        dispatch(addPost(formData.post));
         toast.success("Kaydedildi");
         reset();
       })
