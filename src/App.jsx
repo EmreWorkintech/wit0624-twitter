@@ -1,4 +1,8 @@
-import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import {
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom.min";
 import Login from "./pages/Login";
 import Feed from "./pages/Feed";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,6 +15,9 @@ function App() {
   return (
     <>
       <Switch>
+        <Route exact path="/">
+          <Redirect to="/login" />
+        </Route>
         <Route path="/login">
           <Login setUser={setUser} />
         </Route>
