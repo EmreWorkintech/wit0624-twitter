@@ -47,7 +47,8 @@ function Login({ setUser }) {
             message: "Geçerli bir email adresi giriniz",
           },
         })}
-        placeholder="Email adresinizi girini"
+        placeholder="Email adresinizi giriniz"
+        data-testid="login-form-email"
       />
       {errors.email && (
         <div className="text-red-600">{errors.email.message}</div>
@@ -62,7 +63,7 @@ function Login({ setUser }) {
             message: "Şifreniz en az 8 karakter olmalı",
           },
         })}
-        placeholder="Password'unuzu adresinizi girini"
+        placeholder="Password'unuzu adresinizi giriniz"
       />
       {errors.password && (
         <div className="text-red-600">{errors.password.message}</div>
