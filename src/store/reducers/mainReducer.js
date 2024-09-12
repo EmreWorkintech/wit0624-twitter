@@ -1,8 +1,7 @@
-import { posts } from "../../data";
 import { ADD_POST } from "../actions/mainActions";
 
 const initialState = {
-  posts: posts,
+  posts: [],
   user: null,
 };
 
