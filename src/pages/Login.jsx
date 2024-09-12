@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { toast } from "react-toastify";
 
-function Login() {
+function Login({ setUser }) {
   const {
     register,
     handleSubmit,
@@ -22,6 +23,7 @@ function Login() {
       .post("https://reqres.in/api/users", formData)
       .then((response) => {
         toast.success(response.data.email + " başarı ile kaydedildi!..");
+        setUser(response.data);
         history.push("/feed");
       })
       .catch((error) => toast.error(error.message));
@@ -40,6 +42,7 @@ function Login() {
           required: true,
           pattern: {
             value:
+              // eslint-disable-next-line no-useless-escape
               /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
             message: "Geçerli bir email adresi giriniz",
           },

@@ -3,16 +3,19 @@ import Login from "./pages/Login";
 import Feed from "./pages/Feed";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
+  const [user, setUser] = useLocalStorage("user", null);
+
   return (
     <>
       <Switch>
         <Route path="/login">
-          <Login />
+          <Login setUser={setUser} />
         </Route>
         <Route path="/feed">
-          <Feed />
+          <Feed user={user} />
         </Route>
       </Switch>
       <ToastContainer
